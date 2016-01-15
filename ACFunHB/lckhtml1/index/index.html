@@ -1,0 +1,942 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>
+</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+<link href="css/page1and4.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/upgrade.css">
+<link rel="stylesheet" href="css/first.css">
+<link rel="stylesheet" href="css/keyboard.css">
+<script src="js/jquery.js"></script>
+<script type="text/jscript" src="js/jytool.js"></script>
+<script type="text/jscript" src="js/sys_mb.js"></script>
+<script type="text/jscript" src="js/keyboard.js"></script>
+<!--<script type="text/jscript" src="js/regrist.js"></script>-->
+<script type="text/jscript" src="js/common.js"></script>
+<script type="text/jscript" src="js/register1.js"></script>
+<script type="text/jscript" src="js/register2.js"></script>
+<script type="text/jscript" src="js/bindCard.js"></script>
+    <script type="text/javascript" src="js/zjRegister.js"></script>
+</head>
+<script>
+	document.oncontextmenu=new Function("event.returnValue=false"); 
+	document.onselectstart=new Function("event.returnValue=false"); 
+</script>
+<body  onselectstart="return false" onload="registerObj.init();">
+
+<!--页面1 首页-->
+<div id="page1" style="display:block">
+<!--内容-->
+    <a href="#page2"><div class="input-box newyonghu" id="page-1" onClick="registerObj.regist_close_page(this)">我是新用户</div></a>
+    <a href="#zjRegister_step1"><div class="input-box oldyonghu" id="page-ok_1" onclick="zjRegister.showPage()">我已有东方证券资金账户</div></a>
+</div>
+
+<!--页面2 第一个流程第一步 注册账户-->
+<div name="page2" id="page2" style="display:none;">
+	<!--进度条-->
+    <div class="jingdutiao ">
+        <span><em></em></span>
+    </div>
+
+    <!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">手机号 </span>
+        <input type="text" id="reg_mb_no" placeholder="请输入您的手机号" maxlength="11" style="font-size:15px; width:70%;"/>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">登录密码</span>
+		<input id="password1" type="password" placeholder="请输入6-8位数字" maxlength="8" style="width:70%;ime-mode:disabled;font-size:15px;width:70%;" onclick ="javascript:new KeyBoard(this, 8);" readonly/>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">确认密码 </span> 
+		<input id="password2" type="password" maxlength="8"  style="ime-mode:disabled;font-size:15px;width:70%;"placeholder="请再输入一次" onclick="javascript:new KeyBoard(this, 8);"  readonly="readonly" />
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">验证码</span> 
+       	<input id="reg_code_value_id" type="text" maxlength="6"  placeholder="验证码" style="font-size:15px; width: 30%;" />
+        <input  class="huoqu " id="reg_getCodeId" type= "button" value="免费获取 " onclick="registerObj.sendCode(this)"/>
+    </div>
+    <div class="smallfont1">本人确认：注册手机为本人使用，注册身份信息与运营商实名登记信息一致</div>
+    <a href="#page3" class="btn-submit btn-submit2"  id="page-2" onClick="registerObj.regist_next_page(this);">下一步</a>
+
+</div>
+
+
+<!--页面3 第一个流程第二步 身份信息验证 设置支付密码-->
+<div id="page3"name="page3" style=" display:none;">
+	<!--进度条-->
+    <div class="jingdutiao ma-bottom">
+        <span class="jingdutiao2"><em></em></span>
+        <div class="underline"></div>
+    </div>
+    
+    <!--标题-->
+    <div class="upgrade-prompt-content ma-top">
+        <a href="#" class="zijingzhanghao left-float">设置身份信息 </a>
+    </div>
+    
+    <!--内容-->
+    
+    <div class="input-box newyonghu bjnone font-14px"style="margin-top: 2px;">
+        <span class="bigfont">真实姓名</span>
+        <input type="text" id="Real_name" placeholder="请输入您的真实姓名" style="font-size:15px;width:70%;"/>
+    </div>
+    <div class="input-box oldyonghu bjnone font-14px">
+        <span class="bigfont">身份证号</span> 
+        <input type="text" id="identity_id_no" maxlength="18" placeholder="请输入您的身份证号" style="font-size:15px;width:70%;"/> 
+    </div>
+    
+ <!--标题-->
+    <div class="upgrade-prompt-content ma-top">
+        <a href="#" class="zijingzhanghao left-float">设置支付信息 </a>
+    </div>
+    <!--内容-->
+    <div class="input-box newyonghu bjnone font-14px" style="margin-top: 2px;">
+        <span class="bigfont">支付密码</span>
+        <input id="password3" type="password" maxlength="6" placeholder="请输入6位支付密码"   style="ime-mode:disabled;font-size:15px;width:70%;" onclick ="javascript:new KeyBoard(this, 6);" readonly />
+    </div>
+    <div class="input-box oldyonghu bjnone font-14px">
+        <span class="bigfont">确认密码</span> 
+     	<input id="password4" type="password" maxlength="6" placeholder="请再输入一次"    style="ime-mode:disabled;font-size:15px;width:70%;" onclick ="javascript:new KeyBoard(this, 6);" readonly />
+	</div>
+    
+    <!--对勾选项-->
+    <div class="service-agreement">
+        <label>
+            <span><input id="reg2-agreement" type="checkbox" checked/>我已同意<a class="btn" href="javascript:registerObj2.showDivA();">《财富账户业务服务风险揭示书》</a></span>
+        </label>
+    </div>
+   <a href="#page4" class="btn-submit"  id="page-3" onClick="registerObj2.regist_next_two_page(this);">下一步</a>
+</div>
+
+<!--浮层1 第一个流程第二步的协议-->
+<div class="bigbox a1" style="display:none;" id="diva1">
+  	<div class="abox a2" id="diva2" style="display:none;">
+    	<div class="abox_title_left">东方证券股份有限公司财富账户业务服务风险揭示书    <hr/>
+	</div>
+    <div class="text-xeiyi"> 
+      <!-- <p class="text-head">快捷支付协议</p>-->
+      <p>尊敬的投资者：</p>
+      <p>东方证券股份有限公司根据国家法律法规、证监会规章制度、证券交易所规章制度、登记结算公司规章制度，制定《东方证券股份有限公司财富账户业务服务风险揭示书》。请投资者仔细阅读，并郑重考虑是否开通财富账户业务。</p>
+      <p>（一）  重要提示</p>
+      <p> 投资者通过财富账户，可实现对本人证券交易账户、信用交易账户、期货交易账户、其他交易账户以及理财账户、注册账户的集中查询及交易功能。 </p>
+      <p> 投资者开通财富账户，对本人证券交易账户、信用交易账户、期货交易账户及其他交易账户进行首次关联时，需要输入本人证券交易账户、信用交易账户、期货交易账户及其他交易账户的交易密码进行验证。关联成功后，投资者使用密码控件及财富账户密码登陆财富账户，即可对本人已关联的证券交易账户、信用交易账户、期货交易账户及其他交易账户进行查询及交易。 </p>
+      <p>（二）  风险揭示</p>
+      <p> 东方证券股份有限公司郑重提示您，财富账户业务中存在的风险，包括但不限于以下内容。请您仔细阅读，一旦您做出开通财富账户业务的决定，该业务中存在的风险将由您承担。 </p>
+      <p>一、投资者应妥善保管身份证件、财富账户账号、证券资金账号、证券交易密码、资金密码、财富账户登录密码及财富账户支付密码等。由于上述信息或密码被泄露或被窃取所导致的风险和损失由投资者自行承担。</p>
+      <p>二、 投资者应及时关注和核对财富账户使用记录。如您发现有他人冒用、盗用等异常或可疑情况时，应立即办理重置财富账户登录密码、财富账户支付密码、资金密码等。</p>
+      <p>三、 投资者在使用财富账户办理业务时，如存在证券资金账户余额不足、账户被有权机关冻结、账户存在洗钱与交易不真实或其他涉嫌违法违规等情况时，东方证券可能无法执行您的业务请求。</p>
+      <p>四、 在财富账户业务使用过程中，可能因为东方证券、人民银行、证券交易所、登记结算公司、第三方支付公司的技术系统故障或者差错而影响交易、转账、支付的正常进行或者导致投资者的利益受到影响。</p>
+      <p>五、 东方证券、人民银行、证券交易所、登记结算公司和第三方支付公司等在业务操作过程中，可能因操作失误或违反操作规程而给投资者带来风险。</p>
+      <p>六、 财富账户业务数据传输过程中可能存在系统遭到恶意攻击、系统缺陷被黑客利用、计算机病毒入侵等风险，进而影响投资者进行正常查询及交易。由此造成的损失由投资者自行承担。</p>
+      <p> 七、 东方证券对黑客攻击、网络病毒、银行系统故障、电信部门技术调整及线路故障、银行政策调整导致之影响、因政府管制而造成的暂时性关闭、电力系统故障或限制性供电等在内的任何影响平台、系统运营之情形不承担责任。</p>
+      <p>八、 在财富账户业务服务的存续期间，如果因出现火灾、地震、瘟疫、社会动乱等不能预见、避免或克服的不可抗力情形，可能会给投资者造成经济损失。</p>
+      <p>九、 如国家法律法规和相关政策发生变化时，东方证券有可能按规定暂停或取消财富账户业务服务的全部或部分功能，并按规定办理后续手续。</p>
+      <p>本风险揭示书的揭示事项仅为列举性质，未能详尽列明财富账户业务服务的所有风险。投资者在参与财富账户业务服务前，应认真阅读相关业务规则及协议条款，建议投资者应当充分了解各项风险，审慎决定是否开通财富账户服务。</p>
+      <p>本人已认真阅读、理解并接受本风险揭示书的全部内容，充分知晓财富账户业务中存在的风险，愿意承担财富账户业务服务的风险和损失。</p>
+      <p>投资者签署: </p>
+      <p>日期：</p>
+      <p>&nbsp;</p>
+    </div>
+     <a class="abox_title_left_btn" href="javascript:registerObj2.hideDivA();">关闭</a>
+  </div>
+</div>
+
+<!--页面4 第一个流程 成功结果页面-->
+<div id="page4" name="page4" style="display:none;">
+	<!--内容-->
+    <div class="facebox redfont">恭喜您，您已成功开户！
+        <span class="face"><img src="img/okface.png" style="width:65px;height:65px;"></span>
+        <span class="yiwen">如有疑问，请咨询：95503</span>
+    </div>
+    
+    <a href="#" class="btn-submit "  onclick="TZIndex();">返回首页</a>
+    <!--<a href="#page5" class="btn-submit guanlanyhk" id="page-4" onClick="bindCard.regist_close_page(this);">关联银行卡</a>-->
+</div>
+
+
+<!--页面5 第一个流程 第三步  绑卡-->
+<div id="page5" name="page5" style="display:none;">
+	<!--进度条-->
+     <div class="jingdutiao ma-bottom">
+        <span class="jingdutiao5">
+        <em></em>
+        </span>
+        <div class="underline"></div>
+    </div> 
+	<!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">银行 </span>
+        <div id="register3_bankName" class="chose-bank-gra" onClick="bindCard.show_choseBank_box_Div('choseBank_box')" style="color:;font-size:15px;">请选择银行</div>
+		<input type="hidden" name="bankName" data-role="none" placeholder="请选择开户银行" onClick="bindCard.showBanks('choseBank_box')" readonly>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">卡号</span>
+        <input type="text" id="register3_bankAccount" placeholder="请输入卡号" maxlength="19" style="font-size:15px;" />
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">姓名 </span> 
+        <span class="smallfont shuru" id="bindCard_clentName">**陈 </span>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">身份证号</span>
+        <span class="smallfont shuru" id="bindCard_idNo"> 422****8888</span>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">手机号</span>
+        <input type="text" id="bindCard_mobile" maxlength="11" placeholder="请输入银行预留手机号" style="font-size:15px; width:70%;" />
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">验证码 </span>
+        <input id="bindCard_mobile_code" type="text" maxlength="6" placeholder="验证码" style=" font-size:15px;width: 30%;"/>
+        <input id="register3_bindCard_code"  class="huoqu" type="button" value="免费获取 "  onclick="bindCard.sendBankCode();"/>
+    </div>
+    <!--对勾选项-->
+     <div class="service-agreement">
+        	<div class="service-agreement_left_check">
+                <input id="bindCard_agreement" type="checkbox" checked/>我已阅知并同意
+                </div>
+                <div class="service-agreement_right_xieyi">
+                 <p><a class="btn" href="javascript:bindCard.showDivB('divb1','divb2');">《理财账户协议》</a></p>
+           		 <p><a class="btn" href="javascript:bindCard.showDivB('divc1','divc2');">《网上交易快捷支付业务协议》</a></p>
+          		 <p><a class="btn" href="javascript:bindCard.showDivB('divd1','divd2');">《基金网上交易服务协议》</a></p>
+           		 <p style="display:none;" id="bocxy"><a class="btn" href="javascript:bindCard.showDivB('dive1','dive2');">《中国银行借记卡快捷支付服务协议》</a></p>
+       </div>
+    </div>
+    <div id="reg_msg_div_id3" class="upgrade-prompt-content ma-top ma-top1" style="display:none;">
+        <span id="reg_msg_id3"  class="zijingzhanghao left-float left-float1"></span>
+    </div>
+    <a class="btn-submit"  onclick="bindCard.submit()">下一步</a>
+
+    <!--弹出层-->
+    <div class="fucenbj" id="choseBank_box" style="display: none;">
+        <section class="biaoti">请选择银行<span  onClick="bindCard.close_choseBank_box_Div('choseBank_box')">关闭</span></section>
+        <div class="box">
+            <div class="overflow-y-scroll" id="bindCard_bankList">
+            </div>        
+        </div>
+	</div>
+</div>
+
+
+<!--第二个流程 第一步 资金账户验证-->
+<div id="zjRegister_step1" name="page_ok_3" style=" display:none;">
+<!--进度条-->
+<div class="jingdutiao ma-bottom_fist">
+        <span class="jingdutiao6"><em></em></span>
+    </div>
+    <!--内容-->
+    <div class="input-box newyonghu bjnone font-14px">
+        <span class="bigfont">资金账号</span>
+        <input type="text" id="zjRegister_zjzh" placeholder="" style="font-size:15px;" />
+    </div>
+    <div class="input-box newyonghu bjnone font-14px">
+        <span class="bigfont">交易密码</span>
+        <input id="zjRegister_payPsd" type="password" placeholder="" maxlength="6"   style="ime-mode:disabled;font-size:15px;width:70%;"  onclick ="javascript:new KeyBoard(this, 6);" readonly/>
+    </div>
+
+ 
+   <a href="#zjRegister_step2" class="btn-submit"  onclick="zjRegister.step1()" >下一步</a>
+</div>
+
+
+<!--第二个流程 第二步 注册账户-->
+<div name="page_ok_2" id="zjRegister_step2" style="display:none;">
+	<!--进度条-->
+    <div class="jingdutiao ">
+        <span><em></em></span>
+    </div>
+
+    <!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">手机号 </span>
+        <input id="zjRegister_mobile" type="text" placeholder="请输入您的手机号" style="font-size:15px;" />
+  </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">登录密码</span>
+		<input id="zjRegister_psw" type="password" placeholder="请输入6-8位数字" maxlength="8" style="ime-mode:disabled;font-size:15px;"  onclick ="javascript:new KeyBoard(this, 8);" readonly/>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">确认密码 </span> 
+       	<input id="zjRegister_pswd2" type="password" maxlength="8"  style="ime-mode:disabled;font-size:15px;"placeholder="请再输入一次"  onclick ="javascript:new KeyBoard(this, 8);" readonly/></a>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">验证码</span> 
+       	<input id="zjRegister_code" type="text" placeholder="请输入验证码" style="font-size:15px;" />
+        <input  class="huoqu " id="zjRegister_code_btn" type= "button" value="免费获取 "  onclick="zjRegister.getCodeByMobile();" />
+    </div>
+    <div class="smallfont1">本人确认：注册手机为本人使用，注册身份信息与运营商实名登记信息一致。</div>
+       <!--对勾选项-->
+    <div class="service-agreement">
+        <label>
+            <span><input id="reg2-agreement" type="checkbox" checked/>我已同意<a class="btn" href="javascript:registerObj2.showDivA();">《财富账户业务服务风险揭示书》</a></span>
+        </label>
+    </div>
+    <a href="#zjRegister_step3" class="btn-submit"  id="page-ok_2"  onClick="zjRegister.step2()">下一步</a>
+</div>
+
+
+<!--第二个流程 实名信息已被使用-->
+<div class="identity"style="display:none;">
+<div id="reg_msg_div_id" class="upgrade-prompt-content ma-top ma-top1" style="display:none;">
+   	 	<span id="reg_msg_id" href="" class="zijingzhanghao left-float left-float1">您输入的实名信息已被138****1234使用</span>
+</div>
+	<div class="input-box newyonghu bjnone">
+        <span class="bigfont">姓名 </span>
+        <span class="smallfont bold"> *涛</span>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">身份证号</span>
+        <span class="smallfont bold">622433***1026 </span>
+    </div>
+    <a href="#" class="btn-submit">立即登录</a>
+</div>
+
+
+<!--第二个流程第三步 身份信息 设置支付密码-->
+<div id="zjRegister_step3"name="page_ok_5" style=" display:none;">
+<!--进度条-->
+<div class="jingdutiao ma-bottom">
+        <span class="jingdutiao2"><em></em></span>
+    </div>
+    <!--标题-->
+    <div class="upgrade-prompt-content ma-top">
+        <a href="#" class="zijingzhanghao left-float">身份信息 </a>
+    </div>
+    
+    <!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">姓名 </span> 
+        <span class="smallfont shuru" id="zjRegister_clentName">**陈 </span>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">身份证号</span>
+        <span class="smallfont shuru" id="zjRegister_idNo"> 422****8888</span>
+    </div>
+    
+ <!--标题-->
+    <div class="upgrade-prompt-content ma-top">
+        <a href="#" class="zijingzhanghao left-float">设置支付信息 </a>
+    </div>
+    <!--内容-->
+    <div class="input-box newyonghu bjnone font-14px" style="margin-top: 2px;">
+        <span class="bigfont">支付密码</span>
+        <input id="zjRegister_payPassWord" type="password" maxlength="6" placeholder="请输入6位支付密码"   style="ime-mode:disabled;font-size:15px;width:70%;" onclick ="javascript:new KeyBoard(this, 6);" readonly />
+    </div>
+    <div class="input-box oldyonghu bjnone font-14px">
+        <span class="bigfont">确认密码</span> 
+     	<input id="zjRegister_payPassWord2" type="password" maxlength="6" placeholder="请再输入一次"    style="ime-mode:disabled;font-size:15px;width:70%;" onclick ="javascript:new KeyBoard(this, 6);" readonly />
+	</div>
+   <a href="#zjRegister_step4" class="btn-submit"  id="" onClick="zjRegister.step3()">下一步</a>
+</div>
+
+
+<!--第二个流程 第四步  绑卡-->
+<div id="zjRegister_step4" name="page_ok_6" style="display:none;">
+	<!--进度条-->
+     <div class="jingdutiao ma-bottom">
+        <span class="jingdutiao5">
+        <em></em>
+        </span>
+        <div class="underline"></div>
+    </div> 
+	<!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">银行 </span>
+        <div id="zjRegister_bankName" class="chose-bank-gra" onClick="bindCard.show_choseBank_box_Div('zjRegister_choseBank_box')" style="color:;font-size:15px;">请选择银行</div>
+		<input type="hidden" name="bankName" data-role="none" placeholder="请选择开户银行" onClick="bindCard.showBanks('zjRegister_choseBank_box')" readonly>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">卡号</span>
+        <input type="text" id="zjRegister_bankAccount" placeholder="请输入卡号" maxlength="19" style="font-size:15px;" />
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">姓名 </span> 
+        <span class="smallfont shuru" id="zjRegister_clentName">**陈 </span>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">身份证号</span>
+        <span class="smallfont shuru" id="zjRegister_idNo"> 422****8888</span>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">手机号</span>
+        <input type="text" id="zjRegister_mobile" maxlength="11" placeholder="请输入银行预留手机号" style="font-size:15px; width:70%;" />
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">验证码 </span>
+        <input id="zjRegister_mobile_code" type="text" maxlength="6" placeholder="验证码" style=" font-size:15px;width: 30%;"/>
+        <input id="zjRegister_bindCard_code_btn"  class="huoqu" type="button" value="免费获取 "  onclick="zjRegister.sendBankCode();"/>
+    </div>
+    <!--对勾选项-->
+     <div class="service-agreement">
+        	<div class="service-agreement_left_check">
+                <input id="zjRegister_agreement" type="checkbox" checked/>我已阅知并同意
+                </div>
+                <div class="service-agreement_right_xieyi">
+                 <p><a class="btn" href="javascript:bindCard.showDivB('divb1','divb2');">《理财账户协议》</a></p>
+           		 <p><a class="btn" href="javascript:bindCard.showDivB('divc1','divc2');">《网上交易快捷支付业务协议》</a></p>
+          		 <p><a class="btn" href="javascript:bindCard.showDivB('divd1','divd2');">《基金网上交易服务协议》</a></p>
+           		 <p style="display:none;"><a class="btn" href="javascript:bindCard.showDivB('dive1','dive2');">《中国银行借记卡快捷支付服务协议》</a></p>
+       </div>
+    </div>
+
+   <!-- <div class="service-agreement">
+        <label>
+            <p>
+            	<input id="zjRegister_agreement" type="checkbox" checked/>我已阅知并同意
+            	<a class="btn" href="javascript:bindCard.showDivB('divb1','divb2');">《理财账户协议》</a>
+            </p>
+           	<p style="margin-left:100px;"><a class="btn" href="javascript:bindCard.showDivB('divc1','divc2');">《网上交易快捷支付业务协议》</a></p>
+           	<p style="margin-left:100px;"><a class="btn" href="javascript:bindCard.showDivB('divd1','divd2');">《基金网上交易服务协议》</a></p>
+           	<p style="margin-left:100px; display:none;"><a class="btn" href="javascript:bindCard.showDivB('dive1','dive2');">《中国银行股份有限公司借记卡快捷支付服务协议》</a></p>
+        </label>
+    </div>-->
+    <a class="btn-submit"  onclick="zjRegister.step4()">下一步</a>
+
+    <!--弹出层-->
+    <div class="fucenbj" id="zjRegister_choseBank_box" style="display: none;">
+        <section class="biaoti">请选择银行<span  onClick="bindCard.close_choseBank_box_Div('zjRegister_choseBank_box')">关闭</span></section>
+        <div class="box">
+            <div class="overflow-y-scroll" id="zjRegister_bankList">
+            </div>        
+        </div>
+	</div>
+</div>
+
+<!--第二个流程 结果页面-->
+<div id="zjRegister_step5" name="page_ok_4" style="display:none;">
+<!--内容-->
+    <div class="facebox redfont">恭喜您，您已成功开户！
+         <span class="face"><img src="img/okface.png" style="width:65px;height:65px;"></span>
+         <span class="yiwen">如有疑问，请咨询：95503</span>
+    </div>
+    <a href="#" class="btn-submit " onclick="TZIndex();">返回首页</a>
+</div>
+
+
+<!--浮层弹出错误信息-->
+<div class="bigbox a1" style="display:none;" id="MessageBox">
+	<div class="abox_two a2" style="display:block;">
+		<p style="margin-left:19px;font-size:20px; font-weight:bold;">提示</p>
+		<hr>
+	<div class="page_content_center" id="MessageMsg"></div>
+    	<a href="#" class="btn-submit_two" onclick="hideErrorMsgDiv()">确  定</a>
+	</div>
+</div>
+
+
+
+<!--理财账户分险提示书-->
+
+<div class="bigbox a1" style="display:none;" id="divb1">
+	<div class="abox a2" id="divb2" style="display:none;">
+			 <div class="abox_title_left">东方证券股份有限公司财富账户业务服务风险揭示书    <hr/>
+</div>
+		<div class="text-xeiyi">
+				<p>依据《中华人民共和国证券法》、《中华人民共和国合同法》、《中华人民共和国电子签名法》、《证券公司开立客户理财账户规范》和其他有关法律、法规
+                、规章、证券监管机关、证券行业自律组织、证券登记结算机构业务规则以及证券交易所交易规则的规定，投资者与东方证券股份有限公司（以下简称“
+                东方证券”）双方就投资者通过东方证券在线平台申请开立理财账户事宜达成如下协议，供双方共同遵守。</p>
+                <p>第一章　网上开户风险揭示</p>
+                <p>第一条 投资者已详细阅读本章，投资者完全理解东方证券已采取了有效措施保护投资者资料和网上理财账户开户业务的安全，由于互联网是开放性的公众网
+                络，投资者表示清楚认知并愿意承担包括但不限于以下风险和损失，东方证券不能也没有义务为如下风险负责：</p>
+                <p>1. 投资者可登录东方证券官方发布的在线平台申请开立理财账户业务办理，投资者申请开立理财账户时需预留手机号码作为东方证券验证短信及提醒短信接
+                收号码，因投资者提交号码错误导致的个人信息泄露、财产损失等风险将由投资者自行承担。</p>
+                <p>2. 宏观经济风险：因宏观经济形势变化，可能引起价格等方面的异常波动，投资者有可能遭受损失。</p>
+                <p>3. 政策风险：有关法律、法规及相关政策、规则发生变化，可能引起价格等方面异常波动，投资者有可能遭受损失。</p>
+                <p>4. 违约风险：因其他交易方无力或无意愿按时足额履约，投资者有可能遭受损失。</p>
+                <p>5. 利率风险：市场利率变化可能对购买或持有产品的实际收益产生影响。</p>
+                <p>6. 不可抗力因素导致的风险：“不可抗力”指地震、台风、水灾、火灾、战争、公共通讯线路瘫痪以及其他不能预见或虽可预见但对其发生和后果不能防止或不可避免的、而且直接影响本协议的履行或者致使本协议不能按约定的条件履行的事件、不能避免且不能克服的客观情况。</p>
+                <p>7. 因投资者的过错导致的任何损失，该过错包括但不限于：决策失误、操作不当、遗忘或泄露密码、密码被他人破解、投资者使用的计算机系统被第三方侵入、投资者委托他人代理交易时他人恶意或不当操作而造成的损失投资者务必通过上述指定网站申请网上理财账户开户业务。请投资者注意识别不法分子通过互联网发布的虚假信息，避免投资者账号、密码、手机号码、银行账户等个人信息泄露，否则因此导致的个人信息泄露、财产损失等风险将由投资者自行承担。</p>
+                <p>8. 由于网上理财账户开户是通过互联网技术和电脑技术来实现的，这些技术存在着被网络黑客和计算机病毒攻击的可能，同时互联网技术、电脑技术和相关软件具有存在设计缺陷的可能。如果用于证实投资者身份的证件号码、手机号码及密码被窃取，他人有可能仿冒投资者身份在互联网上办理网上开户等业务从而给投资者造成损失。 </p>
+                <p>9. 由于投资者提供的所有资料、填制或确认的申请表所载信息引起的法律后果，包括但不限于虚假身份、冒用他人身份、隐瞒有关信息、遗漏有关信息等所导致的一切后果（包括但不限于网上理财账户开户失败、投资者理财账户被限制使用等）将由投资者自行承担。 </p>
+               
+                <p>10. 投资者使用网上理财账户开户服务过程中的数据传输可能因通信繁忙出现延迟，或因其它原因出现中断、停顿或数据错误，从而使得网上理财账户开户服务出现延迟、停顿或中断。 </p>
+               
+                <p>11. 投资者应设置理财账户密码（包括登陆密码、支付密码）。投资者需严格注意理财账户信息及密码安全，勿听信其他机构或个人告知密码的要求。避免因通过仿冒网站、非法网站等泄露身份证号、银行账号、密码等个人信息而遭受损失。</p>
+                
+                <p>12. 东方证券不对任何投资者或任何交易提供任何担保，无论是明示、默示或法定的。东方证券不能也不试图对投资者发布的信息进行控制，对该等信息，东方证券不承担任何形式的证明、鉴定服务。东方证券不能完全保证平台内容的真实性、充分性、可靠性、准确性、完整性和有效性。不能保证在线平台所售理财产品的收益及兑付，并且无需承担任何由此引起的法律责任。投资者依赖于投资者的独立判断进行理财产品购买等交易，并阅读产品风险揭示书，投资者应对其做出的判断承担全部责任。</p>
+                
+                <p>14. 上述风险揭示事项仅为列举性质，未能详尽列明网上理财账户开户、通过东方证券进行交易的全部风险及市场的全部情形。投资者在申请网上理财账户开户前，应认真阅读相关业务规则及法律法规，对可能存在的风险因素完全了解和掌握。投资者在做出决策前，应全面了解相关产品，谨慎决策，并自行承担全部风险。</p>
+                
+                <p>第二章　双方权利及义务</p>
+                
+                <p>第二条 投资者有权通过本协议约定的方式办理网上理财账户开户，并选择和变更自己所需要的服务。</p>
+                
+                <p>第三条 投资者承诺以下事项：</p>
+             
+                <p>1. 在投资者同意接受本协议时，投资者已经年满18周岁的中国大陆地区公民，具有完全民事行为能力。不具备前述条件的，投资者应立即终止注册或停止使用本服务。</p> 
+                
+                <p>2. 投资者必须按照东方证券要求提供真实、准确、完整、有效的个人资料。 </p>
+               
+                <p>3. 投资者保证所使用资金的来源合法。</p>
+                
+                <p>4. 投资者必须自行准备如下设备和承担如下开支：</p>
+                
+                <p>（1）上网设备，包括并不限于电脑、手机或者其他上网终端、调制解调器及其他必备的上网装置；  </p>
+              
+                <p>（2）上网开支，包括并不限于网络接入费、上网设备租用费、手机流量费等。 </p>
+               
+                <p>5. 投资者有义务维持并更新投资者的资料，确保其为真实、最新、有效及完整。 </p>
+               
+                <p>6. 当投资者资料变更时应及时按东方证券指定的方式办理资料更新手续，因投资者资料未及时更新而造成的损失将由投资者自行承担当投资者资料变更时应及时按东方证券指定的方式办理资料更新手续，因投资者资料未及时更新而造成的损失将由投资者自行承担。如因投资者未及时更新基本资料，导致东方证券服务无法提供或提供时发生任何错误，投资者不得将此作为取消交易或拒绝付款的理由，东方证券不承担任何责任，所有后果应由投资者承担。 </p>
+               
+                <p>7. 若投资者提供任何错误、虚假、过时或不完整的资料，或者东方证券依其独立判断怀疑资料为错误、虚假、过时或不完整，东方证券有权暂停或终止投资者的理财账户开户，并拒绝投资者使用东方证券提供服务的部份或全部功能。此情况下，投资者同意负担因此所产生的直接或间接的任何支出或损失，东方证券不承担任何责任。</p>
+                
+                <p>8. 在东方证券平台交易需订立本协议采用电子协议方式。投资者登录东方证券平台后，按照东方证券的相关规则及流程，在东方证券平台通过点击确认或类似方式签署的电子协议即视为投资者本人真实意愿并以投资者本人名义签署的协议，具有法律效力。投资者应妥善保管自己的账户密码等账户信息，投资者通过前述方式订立的电子协议对协议各方具有法律约束力，投资者不得以其账户密码等账户信息被盗用或其他理由否认已订立的协议的效力或不按照该等协议履行相关义务。</p>
+                
+                <p>9. 投资者根据本协议以及东方证券的相关规则签署电子协议后，不得擅自修改。东方证券不向投资者提供电子协议的备案、核对服务。如对协议内容任何争议，应以东方证券记录的协议内容为准。</p>
+                
+                <p>10. 投资者不得私自仿制、伪造在东方证券平台上签订的电子协议或印章，不得用伪造的协议进行招摇撞骗或进行其他非法使用，否则由投资者自行承担责任。</p>
+                
+                <p>第四条 投资者使用东方证券在线平台进行理财账户开户的，应先通过第三方身份认证。为使用东方证券或东方证券委托的第三方机构提供的充值、取现、代扣等服务，投资者应按照东方证券平台规定的流程提交以投资者本人名义登记的有效银行借记卡（以下简称“银行卡”或“借记卡”）等信息，经由东方证券审核通过后，东方证券会将投资者的理财账户与前述银行账户进行绑定。如投资者未按照东方证券规定提交相关信息或提交的信息错误、虚假、过时或不完整，或者东方证券有合理的理由怀疑投资者提交的信息为错误、虚假、过时或不完整，东方证券有权拒绝为投资者提供银行卡认证服务，投资者因此未能使用充值、取现、代扣等服务而产生的损失自行承担。 </p>
+               
+                <p>第五条 投资者应确保办理理财账户网上开户所填写的身份资料、理财账户资料与指定银行账户的身份信息完全一致，因投资者身份信息资料不一致而造成的身份验证失败、开户失败由投资者自行承担。</p>
+                
+                <p>第六条 投资者应如实填写网上理财账户开户申请材料并严格按照系统提示进行操作，因投资者提交材料不符合东方证券要求而造成的身份验证失败、开户失败由投资者自行承担。 </p>
+               
+                <p>第七条 投资者应妥善保管本人理财账户账号及密码、银行账号及密码、手机号码，因投资者账号、密码保管不善、或将本人理财账号、银行账号、手机号码或密码泄露、转交或告知他人，投资者自行承担全部经济损失和法律后果。 </p>
+               
+                <p>第八条 投资者有权监督东方证券在线平台的安全性，如发现东方证券在线平台出现安全漏洞，应立即通知东方证券。  </p>
+              
+                <p>第九条 投资者应及时注意东方证券在线平台业务提示，因未及时关注业务提示所造成的全部经济损失和法律后果由投资者自行承担。</p>
+                
+                <p>第十条 东方证券将为投资者提供以下客户服务：   </p>
+             
+                <p>1. 理财产品购买：投资者可以通过东方证券在线平台平台买卖或申购赎回理财产品购。 </p>
+               
+                <p>2. 查询：东方证券将对投资者在东方证券平台的所有操作进行记录，不论该操作之目的最终是否实现。投资者可以通过账户实时查询账户名下的交易记录。投资者理解并同意投资者最终收到款项的服务是由投资者经过认证的银行卡对应的银行提供的，需向该银行请求查证。投资者理解并同意通过东方证券平台查询的任何信息仅作为参考，不作为相关操作或交易的证据或依据；如该等信息与东方证券记录存在任何不一致，应以东方证券提供的记录为准。  </p>
+              
+                <p>. 东方证券提供的其他服务。 </p>
+               
+                <p>第十一条 为确保投资者通过东方证券在线平台开立理财账户信息的安全性、真实性、保密性和不可否认性，东方证券有权通过第三方认证机构对投资者身份进行认证，并接受投资者办理网上理财账户开户等相关业务。 </p>
+               
+                <p>第十二条 为确保理财账户由投资者本人申请开立，避免发生投资者个人信息被窃取、身份被冒用等风险，东方证券有权采取电话回访、第三方认证等方式验证投资者身份，并有权根据实际情况增加或调整对投资者网上理财账户开户申请的身份验证措施。投资者签署本协议，即表示对此完全认可且主动配合。  </p>
+              
+                <p>第十三条 投资者不得将注册获得的账户借给他人使用，否则投资者应承担由此产生的全部责任，并与实际使用人承担连带责任。在东方证券履行完形式审查义务的前提下，他人以冒用、盗用、伪造、变造投资者证件或以其他方式冒用、盗用投资者名义开户或导致的所有损失，东方证券不承担任何责任。  </p>
+              
+                <p>第十四条 投资者每次使用东方证券服务应直接登录东方证券在线平台或使用东方证券提供的链接登陆东方证券商城（如东方证券以公告等形式发布新的在线平台，请届时登陆新的在线平台），不能通过邮件或其他网站提供的非法链接登录。 </p>
+               
+                <p>第十五条 东方证券应审慎检查投资者提交的开户申请材料，如不符合要求，东方证券有权拒绝投资者的开户申请。</p>
+                
+                <p>第十六条 如东方证券发现投资者存在下列任何一种情形，东方证券可要求投资者限期纠正，投资者不能按期纠正或拒不纠正的，东方证券可视情形依法中断或终止向投资者提供理财账户开户服务、限制投资者使用理财账户：     </p>
+           
+                <p>1. 投资者提供的不同理财账户名称、证件类型、证件号码等关键信息比对不一致； </p>
+               
+                <p>2. 投资者未按东方证券要求设置理财账户密码；    </p>
+            
+                <p>3. 投资者提供的开户申请资料不真实，使用他人信息或涉嫌冒用、盗用他人名义开户；        </p>
+        
+                <p>4. 东方证券发现投资者的资金来源不合法，；   </p>
+             
+                <p>5. 投资者违反法规规则或本协议的有关规定。        </p>
+        
+                <p>第十七条 东方证券在线平台暂时无法提供关键信息变更业务，投资者申请办理名称、证件类型及证件号码等关键信息的变更业务，请致电95503或至我司营业部咨询办理。   </p>
+             
+                <p>第三章 甲乙双方的责任及免责条款</p>
+                
+                <p>第十八条 投资者买卖或申购赎回理财产品时应保证其理财账户中有足够的资金或产品，保证根据成交结果承担相应的清算交收责任。投资者资金或产品不足时，因非正常原因造成投资者买入、卖出或申购赎回成功的，投资者应承担透支资产的归还责任。东方证券可对投资者的资产进行处分，包括但不限于限制取款和限制交易、留置、扣划、强制平仓等，由此造成的全部损失和法律后果由投资者自行承担，给东方证券造成的损失，东方证券有权追偿。
+                </p>
+                <p>第十九条 投资者委托东方证券买卖或申购赎回理财产品成功，应当按照法规或产品说明书要求缴纳相应费用。 </p>
+               
+                <p>第二十条 东方证券郑重提醒投资者注意密码、手机号码的保密。任何使用投资者密码、手机号码进行的操作（包括产品交易委托、资金转账、客户资料修改等）均视为投资者行为；由于密码失密和手机号码盗取给投资者造成损失的，投资者自行承担全部经济损失和法律后果。   </p>
+             
+                <p>第二十一条 东方证券对投资者的开户资料、委托事项、交易记录等资料负有保密义务，非经法定有权机关或投资者许可或授权，不得向第三人透露，因网络支付协议中约定可被第三方身份认证机构获悉的除外。 </p>
+               
+                <p>第二十二条 因地震、台风、水灾、火灾、战争、瘟疫、社会动乱及其他不可抗力因素导致的投资者损失，东方证券不承担任何赔偿责任。 </p>
+               
+                <p>第二十三条 因东方证券不可预测或无法控制的系统故障、设备故障、通讯故障、电力故障等突发事故及其他非东方证券人为因素、监管机关或行业协会规定的其他免责情形，给投资者造成的损失，东方证券不承担任何赔偿责任。  </p>
+              
+                <p>第二十四条 第二十二、二十三条所述事件发生后，东方证券应当及时采取措施防止投资者损失可能的进一步扩大。  </p>
+              
+                <p>第二十五条 在任何情况下，对于投资者使用东方证券服务过程中涉及由第三方提供相关服务的责任由该第三方承担，东方证券不承担该等责任。东方证券不承担责任的情形包括但不限于：     </p>
+           
+                <p>1. 因银行、第三方支付机构等第三方未按照投资者或东方证券指令进行操作引起的任何损失或责任；       </p>
+                </p>
+                <p>2. 因银行、第三方支付机构等第三方原因导致资金未能及时到账或未能到账引起的任何损失或责任；     </p>
+           
+                <p>3. 因银行、第三方支付机构等第三方对交易限额或次数等方面的限制而引起的任何损失或责任；   </p>
+             
+                <p>4. 因其他第三方的行为或原因导致的任何损失或责任。       </p>
+         
+                <p>第二十六条因投资者自身的原因导致的任何损失或责任，由投资者自行负责，东方证券不承担责任。东方证券不承担责任的情形包括但不限于：           </p>
+     
+                <p>1. 投资者未按照本协议或东方证券公布的任何规则进行操作导致的任何损失或责任；  </p>
+              
+                <p>2. 因投资者使用的银行卡的原因导致的损失或责任，包括投资者使用未经认证的银行卡或使用非投资者本人的银行卡，投资者的银行卡被冻结、挂失等导致的任何损失或责任；     </p>
+           
+                <p>3. 投资者向东方证券发送的指令信息不明确、或存在歧义、不完整等导致的任何损失或责任；</p>
+                
+                <p>4. 投资者账户内余额不足导致的任何损失或责任； </p>
+               
+                <p>5. 投资者未能阅读并充分理解东方证券在线平台所出售理财产品的说明书、风险揭示书等所揭示内容、产品细则等；  </p>
+              
+                <p>6. 其他因投资者原因导致的任何损失或责任。 </p>
+               
+                <p>第二十七条 东方证券应勤勉尽责、客观及时地向投资者提供信息、资料。东方证券及其工作人员向投资者提供的各种信息及资料、咨询服务，仅作为投资参考，投资者应自行承担据此进行投资所产生的风险。   </p>
+             
+                <p>第四章　争议的解决 </p>
+               
+                <p>第二十八条 因投资者违约而使东方证券遭受的损失应由投资者承担责任，东方证券对投资者理财账户及其产品账户内的资产享有优先受偿权。如出现涉及投资者财产继承权或财产归属的纠纷，东方证券均按公证机关出具的公证书、司法机关的裁决或仲裁机构的裁决办理。  </p>
+              
+                <p>第二十九条 本协议执行中发生的纠纷，甲乙双方可以自行协商解决或向中国证券业协会申请调解，若协商或调解不成，双方同意向东方证券所在地法院提起诉讼解决。  </p>
+               
+                <p>第五章 知识产权  </p>
+              
+                <p>第三十条 东方证券平台上所有内容，包括但不限于著作、图片、档案、资讯、资料、平台架构、平台画面的安排、网页设计，商标权、专利权、著作权、商业秘密等，均由东方证券或其他权利人依法拥有其知识产权。非经东方证券或其他权利人书面同意，任何人不得擅自使用、修改、复制、公开传播、改变、散布、发行或公开发表东方证券平台程序或内容。   </p>
+             
+                <p>第三十一条 投资者未经东方证券的明确书面同意不得下载或修改东方证券在线平台的平台或其任何部分。投资者不得对东方证券在线平台的平台或其内容进行转售或商业利用；不得收集和利用产品目录、说明和价格，或进行任何衍生利用；不得为其他商业利益而下载或复制理财账户信息或使用任何数据采集、数据收集和摘录。未经东方证券的书面许可，严禁对东方证券在线平台平台的内容进行系统获取以直接或间接创建或编辑文集、汇编、数据库或人名地址录。另外，严禁为任何未经本使用条件明确允许的目的而使用东方证券平台上的内容和材料。 </p>
+                
+                <p>第三十二条 未经东方证券明确书面同意，不得以任何商业目的对东方证券网站或其任何部分进行复制、复印、仿造、出售、转售、访问、或以其他方式加以利用。尊重知识产权是投资者应尽的义务，如有违反，投资者应对东方证券承担损害赔偿等法律责任。  </p>
+              
+                <p>第六章　附则 </p>
+               
+                <p>第三十三条 投资者通过东方证券在线平台确认接受本协议内容并通过第三方机构验证的，视为投资者本人签署本协议书，本协议生效与投资者签署纸质协议具有同等法律效力。 </p>
+               
+                <p>第三十四条 本协议签署后，若有关法律、法规、规章、登记结算机构业务规则以及证券交易所交易规则修订，本协议相关条款与其中强制性规定发生冲突的，本协议相关内容及条款按新修订的规定办理，但本协议其他内容及条款继续有效。 </p>
+                <p>第三十五条 本协议根据有关法律、法规、规章、证券监管机关、证券行业自律组织、证券登记结算机构业务规则以及证券交易所交易规则制定，如需修改或增补，修改或增补的内容将由东方证券在其公司网站以公告形式通知投资者无需另行单独通知投资者。东方证券有权在必要时修改本协议内容，并通过东方证券网站公告最新的协议内容。投资者在公告后的七个交易日内不提出书面异议的，投资者被视为已理解和接受修改后的协议内容，并愿意遵守修改后的协议内容,公告内容即成为本协议组成部分。</p>
+                <p>第三十六条 本协议自投资者通过在线平台确认同意接受本协议书起生效。  </p>
+       			 <p>发生下列情形之一，本协议终止:  </p>
+                <p>1. 一方违反本协议，导致不能继续履行协议的，另一方可要求终止；</p>
+                <p>2. 甲乙双方协商同意终止。</p>
+                <p>第三十七条 本协议的终止不影响未了结的清算交收责任和有关争议解决条款的执行。</p>
+                <p><strong>投资者已经认真阅读并全面接受本协议全部条款和内容，愿意履行和承担本协议项下的权利、义务和责任，自愿申请网上开户及业务办理，并愿意承担由此产生的各种风险和法律后果</strong>	</p>   						  
+                <p>&nbsp;</p> 
+			</div>
+            <a class="abox_title_left_btn" href="javascript:bindCard.hideDivB('divb1','divb2');">关闭</a>
+
+	</div>
+</div>
+
+
+
+<!--网上交易快捷支付业务协议 -->
+<div class="bigbox a1" style="display:none;" id="divc1">
+	<div class="abox a2" id="divc2" style="display:none;">
+			 <div class="abox_title_left">东方证券股份有限公司网上交易快捷支付业务协议<hr/>
+</div>
+		<div class="text-xeiyi">
+<p style="color:#000000;">甲方（委托方）：投资者</p>
+<p style="color:#000000;">乙方（受托方）：汇添富基金管理股份有限公司</p>
+<p>为更好地给甲方提供优质服务，甲、乙双方根据相关法律、法规的规定，本着自愿、平等、互利的原则，就甲方通过乙方交易系统购买乙方基金产品时办理“快捷支付”业务达成以下协
+议（以下简称“本协议”）。本协议为《汇添富基金管理股份有限公司网上交易服务协议》之补充并与该协议具有同等效力，本协议与该协议存在冲突的，应以本协议的约定为准；本协议未尽事宜参照该协议相关条款执行。</p>
+<p>第一条　释义</p>
+<p>1、“快捷支付”业务：指甲方通过乙方系统（手机客户端、网上交易等）提交基金认/申购（含定投申购）申请后，委托乙方即时或按约定日期（非工作日顺延）向银行发送扣款指令，将认/申购资金从甲方指定的借记卡账户内扣划至乙方指定收款账户的交易行为。以下简称“本业务”。</p>
+<p>2、“投资者”：指符合基金合同要求的且持有乙方“快捷支付”业务所支持的银行卡的乙方客户。</p>
+
+<p>第二条 甲方的权利与义务</p>
+<p>1、本协议是乙方与甲方就“快捷支付”业务的使用等相关事项所订立的有效合约。甲方通过乙方系统进行“快捷支付”业务前必须与乙方签订本协议。甲方通过乙方系统确认本协议下方的“我同意”字样并点击“下一步”，代表甲方已仔细阅读并理解本协议的全部约定内容，完全接受其法律约束力，效力视同为甲、乙双方签字盖章。</p>
+
+<p>2、甲方在签订本协议之前，已经详细阅读本协议及《汇添富基金管理股份有限公司网上交易服务协议》中包括乙方免责条款在内的所有内容，并已准确理解其含义。</p>
+<p>3、甲方确认已详细阅读并理解、接受乙方所管理的开放式基金的基金合同、基金招募说明书、业务规则等所有内容及相关规定。甲方自愿通过乙方系统办理基金业务，并承诺上述业务视同甲方亲临乙方柜台办理。</p>
+
+<p>4、甲方清楚地了解乙方有关业务规则披露的风险及其他使用“快捷支付”业务可能遭受的风险，并自愿承担该种风险及其可能导致的损失。</p>
+
+<p>5、甲方同意签订本协议的行为即表示甲方授权借记卡发卡行根据乙方指令扣划甲方借记卡账户中的相应款项至乙方指定收款账户。甲方理解并同意，发卡行仅是依据甲方向乙方发出的指令进行款项的划扣，除非发卡行执行指令错误，否则因此导致的所有纠纷均由甲方与乙方之间协商解决，与发卡行无关。</p>
+
+<p>6、甲方应确保在使用本业务时开通的借记卡为甲方本人的银行卡，确保使用该借记卡支付的行为合法、有效，未侵犯任何第三方合法权益；否则因此造成乙方、持卡人损失的，甲方应负责赔偿并承担全部法律责任。</p>
+
+<p>7、甲方应妥善保管借记卡及借记卡账号、身份证件及证件号码等与借记卡或与甲方身份有关的一切信息。如甲方遗失借记卡、身份证件或相关信息的，甲方应及时通知发卡行和/或乙方，以减少可能发生的损失。因甲方或甲方授权人丢失借记卡、身份证件等导致的损失由甲方自行承担。</p>
+
+<p>8、甲方应自行承担其在乙方预留的交易密码（以下简称“密码”）的保密义务。凡是使用甲方密码所提交的一切委托，均被视为甲方亲自办理的有效委托。甲方由于自己疏忽或其他原因而致使密码失密造成的损失由甲方自己承担。</p>
+
+<p>9、甲方如使用本业务进行支付的，应当在认真确认委托金额后选择“快捷支付”（或同时输入密码）进行支付。甲方选择“快捷支付”即视为甲方确认交易和交易金额并已不可撤销地向乙方发出指令，乙方有权根据甲方指令委托银行从甲方借记卡账户中划扣资金至乙方指定收款账户。届时甲方不应以非本人意愿或其他任何原因要求乙方撤销扣款、退款或承担其他责任。</p>
+
+<p>10、甲方开通“定投申购”或者“自动充值”等功能并通过本业务进行支付的，即授权乙方在甲方约定的日期（非工作日顺延）、按甲方约定的金额自动向发卡行发送扣款指令，发卡行有权根据该指令从甲方借记卡账户中扣划资金至乙方指定收款账户。届时甲方不应以非本人意愿开通“定投申购”协议或其他任何原因要求乙方退款或承担其他责任。</p>
+
+<p>11、甲方应按照乙方系统的相关规则和指引进行正确操作，对使用本业务过程中发出指令的真实性及有效性承担全部责任，甲方需对其恶意操作导致的风险承担法律责任。乙方依照甲方的指令进行操作的一切风险由甲方承担。</p>
+
+<p>12、甲方不得利用乙方系统从事洗钱等违法犯罪活动，不得将本业务用于任何非法的或违反本协议的目的。</p>
+
+<p>13、甲方保证所输入的信息真实、准确、有效并对此承担责任，如有变化，甲方应及时变更相关资料，并保持在银行和乙方留存的资料的一致性。因甲方未能及时变更有关资料所可能导致的损失由甲方承担。</p>
+
+<p>14、甲方授权乙方有权留存甲方在乙方系统中填写的相应信息，以供后续向甲方持续性地提供相应服务（包括但不限于将本信息用于向甲方推广、提供其他更加优质的产品或服务）。甲方承诺乙方保留或所得到的电子交易数据为甲方交易行为唯一有效证据，并承认其等同于书面签署之法律文件之效力。</p>
+
+<p>15、甲方承诺在发现或有理由认为存在未被授权的人正在或可能使用其借记卡账号、密码时，应立即与乙方联系以及采取相应的保护、防范措施。</p>
+
+<p>16、出现下列情况之一的，乙方有权立即终止甲方使用乙方相关业务和服务而无需承担任何责任：</p>
+
+（1）甲方违反本协议的约定。</p>
+
+<p>（2）乙方认为甲方交易存在较高风险的。</p>
+
+　<p>（3）甲方违反乙方的条款、协议、规则、通告等相关规定。</p>
+
+<p>（4）乙方认为甲方使用本业务存在风险的。</p>
+
+　<p>（5）甲方的借记卡有效期届满（如有）。</p>
+
+　<p>（6）乙方与发卡行的快捷支付业务协议中止/终止。</p>
+
+<p>17、因甲方指定的借记卡账户状态异常（如：挂失、冻结、锁定、销户等）、余额不足或扣款金额超过单笔或累计交易限额、安全产品限额等交易限额导致乙方不能按约定扣划资金的，乙方不承担责任。</p>
+
+<p>第三条 乙方的权利和义务</p>
+<p>1、乙方遵守法律法规，并愿意受本协议的所有条款约束。</p>
+
+<p>2、对甲方委托的各类业务，乙方对相关电子数据进行保留并作为甲方交易行为的证明。乙方对甲方的账户资料、委托事项负有保密义务，未经甲方许可，乙方不得透露甲方在乙方登记的任何资料。但乙方按照有关法律、法规的规定或有关司法机关、行政管理机关的要求提供甲方的有关资料不在此限。</p>
+
+<p>3、乙方在本协议生效时，为甲方开通协议约定的业务。</p>
+
+<p>4、在法律法规允许的范围内，乙方保留对本协议的最终解释权和修改权。</p>
+
+<p>第四条 违约责任及免责条款</p>
+<p>1、由于任何一方不能履行或不能完全履行约定义务的，由违约方承担违约责任。但因发生不可抗力事件导致快捷支付业务无法进行的，当事人可以免责。出现不可抗力情形时，乙方应及时通知其他合同当事人并积极采取措施予以解决。本协议中所述不可抗力包括但不限于：战争、火灾、地震、水灾、罢工、公共通讯线路瘫痪、黑客攻击、计算机病毒发作、银行或电信部门技术调整等不能合理预见、不可避免和不能克服的自然灾害、社会异常事件及技术风险等。</p>
+
+<p>2、因下列情形导致甲方损失的，乙方不承担责任：</p>
+
+　<p>（1）法律、政策重大变化，或乙方不可预测或控制的因素导致甲方损失的。</p>
+
+　　<p>（2）因甲方对设备的错误操作和对有关信息的错误理解导致甲方损失的。</p>
+
+　　<p>（3）因甲方或甲方授权代表原因（包括但不限于故意、过失，及疏忽等）导致相关银行账号、银行卡密码、证件号码、基金交易密码等密码泄露、遗失或失密，造成甲方损失的。</p>
+
+　　<p>（4）因非乙方原因造成甲方交易密码等重要信息泄露或遗失导致甲方损失的。</p>
+
+　　<p>（5）因甲方使用的计算机、手机、平板电脑等电子设备本身存在性能缺陷、质量问题、病毒、硬件故障等原因导致甲方电子交易身份信息泄露或被仿冒，造成客户损失的。</p>
+
+　　<p>（6）因甲方在发现或有理由认为存在未被授权的人正在或可能使用其电子交易身份时，未及时通知乙方或相关银行采取保护措施，而造成损失的。</p>
+
+　　<p>（7）因甲方本人操作、或由甲方与他人协同操作、或甲方亲属代为操作，而造成相关损失的。</p>
+
+　　<p>（8）因甲方原因未能提交相关业务流程所要求的相关证明材料的。</p>
+
+　　<p>（9）其他归属于甲方责任的情形。</p>
+
+　　<p>（10）因相关银行未进行验证或验证有误而通过的“快捷支付”交易，或者其他由于相关银行过错所产生的相关损失。</p>
+
+　　<p>（11）因不可抗力因素导致甲方受损失的，不可抗力包括但不限于：战争、火灾、地震、水灾、罢工、公共通讯线路瘫痪、黑客攻击、计算机病毒发作、银行或电信部门技术调整、法律或政策重大变化等不能合理预见、不可避免和不能克服的自然灾害、社会异常事件及技术风险等。</p>
+
+　　<p>（12）交易订单发生超过（180）天后持卡人提出补偿要求的。</p>
+
+　　<p>（13）法律规定和本协议约定的其他乙方免责事项。</p>
+
+<p>第五条 协议生效及终止</p>
+<p>1、本协议在甲、乙双方签署后立即生效，甲方在乙方系统 “快捷支付”协议处确认“我同意”并点击“下一步”，即视为对本协议的签署。</p>
+
+<p>2、本协议在下述情况之一发生时终止：</p>
+
+　　<p>（1）甲方主动解约或双方协商同意终止。</p>
+
+　　<p>（2）甲方死亡或不再具备相应的民事行为能力。</p>
+
+　　<p>（3）甲方撤销本协议项下设立的交易账户。</p>
+
+　　<p>（4）乙方不作为甲方认购、申购基金或甲方所持有基金的管理人。</p>
+
+　　<p>（5）因不可抗力使本协议无法继续履行。</p>
+
+　　<p>（6）一方违约，另一方书面通知对方提出解除本协议。</p>
+
+　　<p>（7）乙方与发卡行的快捷支付业务协议中止/终止。</p>
+
+　　<p>（8）法律法规、基金合同约定的其它情形。</p>
+<p>第六条 争议解决</p>
+<p>本协议履行过程中发生争议的，可由当事人协商解决。如果当事人不愿协商解决或协商不成的，任何一方均可将争议提交上海仲裁委员会申请仲裁，依据其届时有效的仲裁规则进行仲裁。仲裁期间，本协议不涉及争议的条款继续履行。</p>
+
+				</div>
+            <a class="abox_title_left_btn" href="javascript:bindCard.hideDivB('divc1','divc2');">关闭</a>
+
+	</div>
+</div>
+
+
+
+<!--基金网上交易服务协议-->
+
+<div class="bigbox a1" style="display:none;" id="divd1">
+	<div class="abox a2" id="divd2" style="display:none;">
+			 <div class="abox_title_left">东方证券股份有限公司基金网上交易服务协议<hr/>
+</div>
+		<div class="text-xeiyi">
+<p>甲方（委托方）：投资人 
+<p>乙方（受托方）：汇添富基金管理有限公司 
+<p>甲、乙双方依据法律法规的规定，本着公开、公平、自愿和诚实信用的原则，就甲方委托乙方提供网上交易服务达成如下协议：
+<p>第一条 风险提示 
+<p>、甲方在申请使用乙方网上交易系统时，已完全了解以下内容：</p> 
+<p>（1）证券投资基金（以下简称“基金”）是一种长期投资工具，其主要功能是分散投资，降低投资单一证券所带来的个别风险。基金不同于银行储蓄和债券等能够提供固定收益预期的金融工具，投资人购买基金，既可能按其持有份额分享基金投资所产生的收益，也可能承担基金投资所带来的损失。</p> 
+<p>（2）基金在投资运作过程中可能面临各种风险，既包括市场风险，也包括基金自身的管理风险、技术风险和合规风险等。巨额赎回风险是开放式基金所特有的一种风险，即当单个交易日基金的净赎回申请超过基金总份额的百分之十时，投资人将可能无法及时赎回持有的全部基金份额。 </p>
+<p>（3）基金分为股票基金、混合基金、债券基金、货币市场基金等不同类型，投资人投资不同类型的基金将获得不同的收益预期，也将承担不同程度的风险。一般来说，基金的收益预期越高，投资人承担的风险也越大。 </p>
+<p>（4）投资人应当认真阅读《基金合同》、《招募说明书》等基金法律文件，了解基金的风险收益特征，并根据自身的投资目的、投资期限、投资经验、资产状况等判断基金是否和投资人的风险承受能力相适应。 </p>
+<p>（5）投资人应当充分了解基金定投投资和零存整取等储蓄方式的区别。基金定投投资是引导投资人进行长期投资、平均投资成本的一种简单易行的投资方式。但是基金定投投资并不能规避基金投资所固有的风险，不能保证投资人获得收益，也不是替代储蓄的等效理财方式。</p> 
+<p>（6）投资人应当充分理解系统基础账户（“全额宝账户”）对应着的是中国证监会批准的货币市场基金产品，该产品不是储蓄，也不保证保本或承诺最低收益。该产品的七日年化收益率不是承诺收益，会随着市场情况的波动而变化。基金管理人有权对系统基础账户的名称、功能、系统接口、对应货币基金产品等进行升级和完善。 </p>
+<p>（7）投资者应当充分认识基金管理人提供的T+0等服务是一种增值服务，不是必须履行的约定。基金管理人可以根据市场流动性情况、基础账户规模变化、自身资金情况对此进行 临时变更和调整，变更时将通过网站、手机平台通知投资人。 </p>
+<p>（8）基金管理人承诺以诚实信用、勤勉尽责的原则管理和运用基金资产，但不保证本基金一定盈利，也不保证最低收益。基金的过往业绩及其净值高低并不预示其未来业绩表现。基金管理人提醒投资人基金投资的“买者自负”原则，在做出投资决策后，基金运营状况与基金净值变化引致的投资风险，由投资人自行负担。 </p>
+
+<p>2、甲方自愿申请使用乙方网上交易系统，并被认为已经完全了解网上交易的风险，并能够承担由此可能带来的损失。 </p> 
+<p>3、投资者只有完成汇添富网上交易注册流程并关联支付银行卡后，才完成网上交易开户的全部流程，</p> 即开立了网上交易的基金账户及交易账户。在关联支付银行卡前，投资者尚不能进行网上交易。</p> 
+<p>4、乙方已最大限度地采取了有效措施保护甲方资料和交易活动的安全。尽管如此，本着对客户负责的态度，乙方在此郑重提示甲方进行网上交易仍然存在风险，该风险包括但不限于： 
+<p>（1）互联网是全球公共网络，并不受任何一个机构所控制。数据在互联网上传输的途径不是完全确定的，可能会受到非法干扰或侵入。 </p>
+<p>（2）在互联网上传输的数据有可能被某些未经许可的个人、团体或机构通过某种渠道获得或篡改。 </p>
+<p>（3）互联网上的数据传输可能因通信繁忙出现延迟，或因其他原因出现中断、停顿或数据不完全、数据错误等情况，从而使交易出现延迟、中断或停顿。 </p>
+<p>（4）互联网上发布的各种信息（包括但不限于分析、预测性的参考资料）可能出现错误并误导包括甲方在内的投资人。 </p>
+<p>（5）甲方的网上交易身份可能会被泄露或仿冒。</p> 
+<p>（6）甲方使用的计算机可能因存在性能缺陷、质量问题、计算机病毒、硬件故障及其他原因，而对甲方造成的交易时间或交易数据造成影响，给甲方造成损失。 </p>
+<p>（7）由于甲方的计算机应用操作能力或互联网知识的缺乏，可能对甲方的交易时间或交易数据造成影响，因此给甲方造成损失。</p>
+<p>（8）因甲方自身的疏忽造成账号或密码泄露，可能会给甲方造成损失。  </p>
+<p>（9）由于不可抗力导致的其它风险。 </p>
+
+<p>第二条 释义 </p> 
+<p>除非本协议另有规定，下列词语具有如下含义： </p> 
+<p>1、网上交易服务：是指乙方按照本协议的规定，为投资人（甲方）提供的，通过网上交易系统下达交易指令、进行信息查询等方面的服务。 </p> 
+<p>2、投资人（甲方）：指依照乙方所管理开放式基金的基金合同和基金招募说明书的规定，通过乙方提供的网上交易系统进行网上交易的投资者。目前仅指个人投资者。 </p> 
+<p>3、基金账户：指基金注册登记人为投资人开立的记录其持有乙方所管理的开放式基金的基金份额、份额变动情况及基本资料的账户。 </p> 
+<p>4、交易账户：是指甲方开立的记录其通过乙方投资理财中心或网上交易系统买卖乙方所管理开放式基金的基金份额及份额变动情况的账户。 </p> 
+<p>5、基金认购：是指开放式基金设立募集期内，甲方申请购买基金份额的行为。 </p> 
+<p>6、基金申购：是指开放式基金合同生效后，甲方申请购买基金份额的行为。 </p> 
+<p>7、基金赎回：是指开放式基金成立之后的存续期内，持有基金份额的投资人要求乙方购回基金份额的行为。 </p> 
+<p>8、基金转托管：是指甲方将其持有的基金份额从一个销售机构的交易账户转入另一个销售机构的交易账户的行为。 </p> 
+<p>9、基金转换：是指基金存续期间，甲方向乙方提出申请将其原持有基金（下称“转出基金”）的基金份额转换为乙方管理的其他基金（下称“转入基金”）的基金份额的行为。 </p> 
+<p>10、基金份额净值：是指计算日基金资产净值除以计算日基金份额总数后的价值。 </p> 
+<p>11、T日：是指乙方确认的甲方提交有效申请的工作日。 </p> 
+<p>12、T＋n日：是指T日后第n个工作日（不包含T日）。 </p> 
+<p>13、工作日：是指上海证券交易所或深圳证券交易所的正常交易日。 </p> 
+<p>14、开放日：是指为甲方办理基金业务的工作日。 </p> 
+<p>15、网上交易系统：是指网址为https://trade.99fund.com的基金交易系统。 
+<p>16、业务规则：是指《汇添富基金管理有限公司开放式基金网上交易业务规则》。 </p> 
+<p>第三条 服务内容 </p> 
+协议所述网上交易服务的内容包括账户开立、账户资料变更、认购、申购、赎回、转换、转托管、交易撤销、分红方式变更、交易密码修改、相关信息查询及其他业务。 </p> 
+
+<p>为了改善用户体验，保障服务的安全性以及产品功能的一致性，乙方有权在必要时对网上交易服务的软件系统进行更新升级，包括但不限于：网页、图片、文字、音频、短信服务接口、软件界面、操作系统、数据库以及系统基础账户对应的经中国证监会批准的货币类基金产品等。 </p> 
+<p>第四条 甲方承诺 </p> 
+<p>1、甲方已经了解并完全理解使用网上交易可能遭受的风险，并自愿承担该种风险及其可能导致的损失。 
+<p>2、甲方在签订本协议之前，已经详细阅读并完全认可了本协议中包括乙方免责条款在内的所有条款，并已准确理解其含义。 </p> 
+<p>3、甲方确认已详细阅读并理解、接受乙方所管理的开放式基金的基金合同、基金招募说明书、业务规则的所有内容及规定。甲方自愿通过乙方的网上交易系统办理基金业务，并承诺上述业务视同甲方亲临乙方柜台办理。 </p> 
+<p>4、甲方保证用于投资乙方所管理基金的资金来源合法，否则由此引起的一切责任由甲方承担。 
+<p>5、甲方保证所输入的信息真实、准确和有效并对此承担责任，如有变化，甲方应及时变更相关资料。因甲方未能及时变更有关资料所可能导致的损失由甲方承担。 </p> 
+<p>6、甲方承诺独立使用本合同规定的网上交易服务，不与他人共享；甲方不利用该系统从事基金代理买卖业务并从中收取任何费用。 </p> 
+<p>7、甲方确保其用于网上交易的设备的安全性和可靠性。对于因甲方的设备故障、通讯故障等原因造成的经济损失，乙方不承担任何责任。 </p> 
+<p>8、甲方应自行承担其交易密码及银行卡支付密码的保密义务。甲方应自行承担其交易密码的保密义务。凡是使用甲方密码所进行的一切委托，均被视为甲方亲自办理的有效委托。甲方由于自己疏忽或其他原因而致使密码失密造成的损失由甲方自己承担，乙方对此不承担任何责任。 </p> 
+<p>9、甲方在发现或有理由认为存在未被授权的人正在或可能使用其账号、密码时，应立即与乙方联系，甲方承诺采取相应的保护、防范措施。 </p> 
+<p>10、甲方承诺不以任何方式攻击乙方网络或破坏乙方系统，否则承担由此给乙方或任何第三方造成的损失。 </p> 
+<p>11、甲方对其各项委托活动的结果承担全部责任，承诺偿付任何因其违约而使乙方遭受的损失。</p>  
+<p>12、甲方不得将本协议项下的权利或义务的部分或全部转让给任何第三方。 </p> 
+<p>13、甲方不使用信用卡及任何种类的银行卡进行透支买卖乙方所设立、管理的基金，否则引起的纠纷与乙方无关。 </p> 
+<p>14、甲方承诺乙方保留或所得到的电子交易数据为甲方交易行为唯一有效证据，并承认其等同于书面签署之法律文件之效力。 </p> 
+第五条 乙方承诺 </p> 
+<p>1、乙方遵守法律法规，并愿意受本协议的所有条款的约束。 </p> 
+<p>2、乙方提供的网上交易系统的系统安全、数据备份和故障恢复措施符合监管机关的规定。 </p> 
+<p>3、对甲方委托的网上交易，乙方对相关电子数据进行保留并作为甲方交易行为的证明。乙方对甲方的账户资料、委托事项负有保密义务，未经甲方许可，乙方不得透露甲方在乙方登记的任何资料。但乙方按照有关法律、法规的规定或有关司法机关、行政管理机关的要求提供甲方的有关资料不在此限。 </p> 
+<p>4、乙方在本协议生效当日，为甲方开通协议约定的服务。 </p> 
+<p>第六条 特别提示 </p> 
+<p>1、网上交易协议的签署提示： </p> 
+甲方通过乙方网上交易系统进行网上交易业务前必须与乙方签订本协议。代表甲方已仔细阅读并理解本协议，完全接受其法律约束力，效力视同为甲、乙双方签字盖章。 </p> 
+<p>2、支付业务提示： </p> 
+甲方须依据业务规则及相关业务指南办理资金支付事宜。 </p> 
+<p>3、业务确认提示： </p> 
+甲方提交的开户申请分为基金账户开户和交易账户开户。交易账户和基金账户开户于T+1日经注册登记部门确认后方可确认成功与否。甲方T+2日可以通过网上系统查询确认结果。 
+甲方的交易申请与开户为同一天或次日提交的，交易申请是否成功取决于基金账户开户是否成功。当基金账户开户失败时，交易申请也将失败。</p>  
+<p>4、设备提示： </p> 
+甲方应具备网上交易所必需的设备。 </p> 
+<p>5、委托提示： </p> 
+甲方网上提交的委托，以乙方的系统记录为准。 </p> 
+<p>6、委托受理时间提示：</p> </p> 
+当日委托申请的受理截止时间为15：00。甲方委托申请的时间超出上述截止时间，则乙方视甲方的委托申请为下一个交易日的申请。申请时间以乙方系统自动记载时间为准。 </p> </p> </p> 
+<p>第七条 免责条款 </p> 
+因下列情形导致甲方损失的，乙方不承担责任： </p> 
+<p>1、因地震、火灾、台风及其他各种不可抗力引起停电、网络系统故障、电脑故障。 </p> 
+<p>2、因电信部门的通讯线路故障、通讯技术缺陷、电脑黑客或计算机病毒等问题造成委托系统不能正常运转。 </p> 
+<p>3、法律、政策重大变化，或乙方不可预测、不可控制的因素导致的突发事件导致甲方损失的。 </p> 
+<p>4、因通讯、网络中断、堵塞等情况致使无法及时通过约定的委托手段下达申请委托时导致甲方损失的。 
+<p>5、因甲方设备或通讯故障或设备未能处于正常工作状态致使乙方未能按时或及时收到甲方申请信息，或者乙方收到的甲方申请信息不完整而导致甲方损失的。 </p> 
+<p>6、因甲方对设备的错误操作和对有关信息的错误理解导致甲方损失的。 </p> 
+<p>7、因甲方的故意或疏忽导致交易密码或银行卡支付密码泄露或遗失，由此导致甲方损失的。 </p> 
+<p>8、法律规定和本协议约定的其他乙方免责事项。 </p> 
+<p>第八条 协议生效及变更 </p> 
+<p>1、在不损害甲方利益的前提下，乙方保留修改或增补本协议内容的权利。本协议的修改时间和修改文本将公告于乙方的网站及营业场所，或以其他乙方认为可行的方式通知甲方。甲方在修改通知公布之日起三十日内未向乙方提出书面异议，则视同甲方已经对本协议的修改时间及修改文本表示认可。但乙方增加本协议第二条所述服务内容除外。 </p> 
+<p>2、本协议签署后，若有关法律、法规、规章以及基金合同、基金招募说明书、业务规则等发生变更，本协议之不适应的内容和条款自行失效，并按照变更后的相关法律文件的规定执行。 
+<p>3、本协议在甲、乙双方签署后立即生效，甲方在网上开户申请时，点击“我同意”按钮，即视为对本协议的签署。 </p> 
+<p>4、本协议在下述情况之一发生时终止：</p> 
+<p>（1）双方签订书面协议同意终止。 </p> 
+<p>（2）甲方死亡或不再具备相应的民事行为能力。 </p> 
+<p>（3）甲方撤销本协议项下设立的交易账户。 </p> 
+<p>（4）乙方不作为甲方认购、申购基金或甲方所持有基金的管理人。 </p> 
+<p>（5）因不可抗力使本协议无法继续履行。 </p> 
+<p>（6）一方违约，另一方书面通知对方提出解除本协议。 </p> 
+<p>（7）甲方通过柜台或网上方式取消网上交易方式。</p>  
+<p>（8） 法律法规、基金合同约定的其它情形。</p>  
+<p>第九条 争议的解决 </p>
+<p>甲、乙双方如有争议，应尽可能通过协商解决；协商不成的，任何一方均有权向中国国际经济贸易仲裁委员会上海分会申请仲裁，仲裁地点为上海。仲裁裁决是终局的，对双方均有法律约束力。</p> 
+
+		</div>
+            <a class="abox_title_left_btn" href="javascript:bindCard.hideDivB('divd1','divd2');">关闭</a>
+
+	</div>
+</div>
+
+
+<!--中国银行协议-->
+
+<div class="bigbox a1" style="display:none;" id="dive1">
+	<div class="abox a2" id="dive2" style="display:none;">
+			 <div class="abox_title_left">中国银行股份有限公司借记卡快捷支付服务协议<hr/>
+</div>
+		<div class="text-xeiyi">
+<p>请客户认真阅读本协议文本。</p>
+<p>1、中国银行股份有限公司借记卡快捷支付业务（以下简称“快捷支付业务”）是中国银行股份有限公司（以下简称“中国银行”）和汇添富基金管理股份有限公司（以下简称“商户”）联合为中国银行借记卡持卡客户（以下简称“客户”）提供的一项电子支付服务。凡是持有中国银行股份有限公司在中国大陆地区发行的借记卡的客户，均可申请该业务。</p>
+
+<p>2、客户在签约快捷支付业务时，将收到中国银行发送的带有手机交易码的签约确认短信。客户应认真阅读本协议，在同意本协议约定内容的前提下输入手机交易码。客户输入手机交易码即视同为同意本协议内容。</p>
+
+<p>3、客户通过互联网（Internet）在商户网站或客户端，选择在线与中国银行签订本服务协议，将指定的借记卡与此时登录的账户进行关联，开通快捷支付功能，并承担由此产生的一切责任。</p>
+
+<p>4、客户同意，中国银行以商户传送至中国银行的户名、卡号、手机号码、证件号码等身份要素作为确认客户身份、为客户开通快捷支付业务的唯一证据。中国银行比对户名、卡号、手机号码、证件号码与客户在银行预留信息一致后，通过95566发送手机交易码至客户预留手机号上，并对商户传送的客户填写的手机交易码进行验证，验证一致通过后，完成客户指定的借记卡与此时所登录账户的关联。 客户须保证在中国银行预留手机号码为本人手机号码并确保其准确性。基于提高交易安全的目的，中国银行有权变更上述身份要素。客户须妥善保管本人中国银行借记卡信息，本人身份信息、手机交易码、安全认证工具等敏感信息，不得将敏感信息向他人透露。因客户银行预留信息错误，或个人信息、手机等保管不善产生的风险及损失由客户本人承担。</p>
+
+<p>5、开通快捷支付业务后，客户同意并授权中国银行在本协议约定的服务范围内，将其所关联借记卡的原有支付验证方式变更为按照商户发送的交易指令从客户指定的借记卡账户中支付相应款项。客户需在其绑定的借记卡的余额内进行支付，否则中国银行有权拒绝执行交易指令。</p>
+
+<p>6、中国银行可根据业务发展需要，设置或修改支付限额，客户对此无异议，客户办理快捷支付业务时需同时受中国银行和商户设置的支付限额的约束。在任何情况下，支付金额不应超过中国银行或商户设置的支付限额（以较低者为准）。如实际支付金额大于规定的支付限额，中国银行将拒绝执行交易指令。</p>
+
+<p>7、本协议项下，中国银行仅提供通过商户发生的支付结算服务。客户因通过商户购买商品或服务而产生的一切关于商品或服务质量、商品交付，交易款项扣收与划付的争议均由客户与商户或商品/服务的实际销售商自行协商解决。</p>
+
+<p>8、客户使用借记卡快捷支付业务应防范的风险包括但不限于：</p>
+
+　<p>（1）客户借记卡快捷支付使用的用户名、账户、密码等重要信息可能被其他人猜出、偷窥或通过木马病毒、假冒网站、欺诈电话或短信等手段窃取，从而导致客户信息泄露、资金损失、账户被恶意操作等后果。</p>
+
+　<p>（2）手机可能被盗或未经许可被他人使用，若手机银行密码同时被窃取，可能造成账户资金损失等情况；若客户更换手机号时未取消以原手机号开通的短信提醒服务，当原手机号被他人使用时，可能造成客户的账户信息泄露等情况。</p>
+
+　<p>（3）客户使用设备的操作系统、杀毒软件、网络防火墙等客户端软件未及时更新或安装补丁程序，可能导致客户信息泄露、资金损失、账户被恶意操作等后果。</p>
+<p>9、客户应采取风险防范措施，安全使用借记卡快捷支付业务，相关措施包括不限于：
+</p>
+　<p>（1）妥善保护借记卡快捷支付业务使用的用户名、账户、密码等重要身份识别标识、身份认证信息及工具，确保上述重要信息和认证工具不经口头或其它方式发生泄露或被盗用。</p>
+
+　<p>（2）对所使用设备的操作系统、杀毒软件、网络防火墙等客户端软件采取有效的措施（如及时更新系统或安装补丁程序等）防范操作系统软件漏洞风险、电子设备中的病毒等。</p>
+
+　<p>（3）妥善保管借记卡、手机及与借记卡快捷支付业务相关的重要身份证件等资料，不交给其他人保管，不放置在不安全场所。</p>
+
+　<p>（4）避免使用容易被其他人猜出或破解的密码（如：采用生日、电话号码等与个人信息相关的信息或具有规律性的数字或字母组合作为快捷支付业务密码），避免设置与其他用途相同的密码（如：采用电子邮件密码作为借记卡快捷支付密码）。客户应定期或不定期更新其密码。</p>
+
+　<p>（5）应经常关注账户内资金变化，如发现任何通过中国银行借记卡快捷支付从事的未经客户许可的操作及交易，客户应马上与支付机构或中国银行取得联系。</p>
+<p>10、借记卡快捷支付业务资金清算可能出现异常及差错交易，银行及商户将对异常及差错交易及时进行纠正处理。银行及支付机构将根据客户要求提供交易记录的时间和方式等信息。</p>
+
+<p>11、客户不得利用中国银行快捷支付业务进行虚假交易、洗钱、诈骗、恐怖融资等行为，且有义务配合中国银行进行相关调查，一旦客户拒绝配合进行相关调查或中国银行认为客户存在或涉嫌虚假交易、洗钱、套现或任何其他非法活动、欺诈或违反诚信原则的行为、或违反本协议约定的，中国银行有权采取以下一种、多种或全部措施：
+</p>
+　<p>（1）暂停或终止提供本协议项下快捷支付业务服务；</p>
+
+　<p>（2）终止本协议；</p>
+
+　<p>（3）取消客户的用卡资格。</p>
+
+<p>12、客户同意中国银行就快捷支付业务的开展，向商户提供客户留存在中国银行的户名、银行卡号、证件号码、手机号码等信息。客户可以登录中国银行官方网站撤销本人名下指定借记卡与公司账户关联的快捷支付功能。</p>
+
+<p>13、中国银行系统升级、业务变化、收费变更，或根据业务发展需要修改本协议，中国银行将提前进行公告。若客户有异议，有权选择撤销相关服务，若客户选择继续接受该服务的，视为客户同意并接受相关业务或协议按变更或修改后的内容执行。双方同意，本协议所称公告均指在中国银行网点、中国银行网站【http://www.boc.cn】、电子银行渠道等进行公告。</p>
+
+<p>14、选择打勾的客户，视同已通读上述条款，对条款的内容及其后果已充分理解，对所有内容均无异议。
+</p>
+<p>15、本协议在客户在商户页面服务协议栏位打勾并提交后生效。本协议的生效、履行及解释均使用中华人民共和国法律（为本协议之目的，不含中国香港、澳门、台湾地区法律）。本协议项下的争议向中国银行所在地人民法院起诉。</p>
+
+		</div>
+            <a class="abox_title_left_btn" href="javascript:bindCard.hideDivB('dive1','dive2');">关闭</a>
+
+	</div>
+</div>
+
+<div class="bigbox a1" style="display:none;text-align: center;" id="loding_box">
+    <img src="img/loading.gif" style="margin-top: 30%;"/>
+</div>
+
+
+</body>
+</html>

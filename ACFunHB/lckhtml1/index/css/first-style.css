@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*内容*/
+.upgrade-prompt-content {
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px #d0d0d4 solid;
+    font-size: 1em;
+    color: #fc6156;
+    background-color: #fff;
+}
+
+.input-box {
+    border: none;
+    border-bottom: 1px #d0d0d4 solid;
+    margin-left: 6%;
+    margin-right: 6%;
+    position: relative;
+    line-height: 33px;
+    height: 33px;
+    border-top: 1px #d0d0d4 solid;
+    background-color: #fff;
+    margin-top: 15px;
+}
+

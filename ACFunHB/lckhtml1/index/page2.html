@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>东方证劵资金账户登录</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+<link href="css/page1and4.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/upgrade.css">
+<link rel="stylesheet" href="css/first.css">
+<link rel="stylesheet" href="css/keyboard.css">
+<script src="js/jquery.js"></script>
+<script type="text/jscript" src="js/jytool.js"></script>
+<script type="text/jscript" src="js/sys_mb.js"></script>
+<script type="text/jscript" src="js/keyboard.js"></script>
+<script src="js/regrist_flow.js"></script>
+<style>
+.abox dl {
+    overflow: hidden;
+    color: #969696;
+    font-weight: bold;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<!--页眉一号通-->
+<div id="page_1">
+<div class="hearder-content">
+    <a class="icon-return" href="javascript:history.go(-1);"></a>
+    登录
+</div>
+<!--内容-->
+<img src="img/logo.png" class="logo">
+<div class="upgrade-prompt-content">
+    <a href="#" class="yihaotong" id="yihaotong">一号通
+    	<em class="linered"></em> 
+    </a>
+    <a href="#zhanghao" class="zijingzhanghao"id="zijingzhaohao">资金帐号</a>
+</div>
+
+<div class="ibox">
+<div class="input-box">
+    <label class="lightcolor">手机号</label>
+    <div class="card-number"><input type="text" value="15800897818"></div>
+</div>
+<div class="input-box">
+    <label  class="lightcolor clock">登陆密码</label>
+    <div class="card-number"><input type="password" value="15800897818"></div>
+    <div  class="huoqu" style="   position: absolute;
+    right: 1px;
+    top: 0;
+    width: auto;
+    text-align: right;
+    bottom: 1.9em;
+    font-size: 0.93em;
+    color: #e12135;"></div>
+</div>
+
+<a href="#" class="btn-submit">登 &nbsp; 录</a>
+<div class="service-agreement">
+    <label>
+        <input type="checkbox" checked/>
+        <span>记住登录手机号</span>
+    </label>
+</div>
+</div>
+
+
+
+<div class="zucezh">
+	<span><a href="index.html" class="blue">注册账号</a></span>
+    <div>忘记密码</div>
+</div>
+</div>
+
+
+
+
+<!--页眉资金帐号-->
+<div  name="zhanghao" id="zhanghao" style="display:none;" >
+<div class="hearder-content">
+    <a class="icon-return" href="javascript:history.go(-1);"></a>
+    登录
+</div>
+<!--内容-->
+<img src="img/logo.png" class="logo">
+
+
+
+<div class="upgrade-prompt-content">
+    <a href="" class="zijingzhanghao">一号通</a>
+    <a href="" class="yihaotong">资金帐号
+    	<em class="linered"></em> 
+    </a>
+    
+    
+</div>
+
+<div class="ibox">
+<div class="input-box">
+    <label class="lightcolor">资金帐号</label>
+    <div class="card-number"><input type="text" value="15800897818"></div>
+</div>
+<div class="input-box">
+    <label  class="lightcolor clock">交易密码</label>
+    <div class="card-number"><input type="password" value="15800897818"></div>
+    <div  class="huoqu" style="   position: absolute;
+    right: 1px;
+    top: 0;
+    width: auto;
+    text-align: right;
+    bottom: 1.9em;
+    font-size: 0.93em;
+    color: #e12135;"></div>
+</div>
+
+<a href="#" class="btn-submit" id="btn_log">登 &nbsp; 录</a>
+
+</div>
+</div>
+
+
+
+<!--浮层1-->
+<div class="bigbox a_3" style="display:none;">
+<div class="abox a_4">
+	<div  class="smallbox">提示<br>
+账号已升级请使用手机号码<br>133***8882222登录</div>
+    <span></span>
+<dl>
+    	
+        <dd class="dowm red "><a href="#" class="yes_next">确定</a></dd>
+    </dl> 
+</div>
+</div>
+
+
+<!--页面2-->
+<div name="shengji" id="shengji" style="display:none;">
+   
+<!--页眉-->
+<div class="hearder-content">
+ <a class="icon-return icon-return-2" onClick="closeKeyboard();">
+    <span>升级</span>
+</div>
+
+<!--进度条-->
+    <div class="jingdutiao ">
+        
+        <span><em></em></span>
+    </div>
+
+    <!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">手机号 </span>
+       
+        <input type="text" placeholder="请输入您的手机号" style="font-size:15px;" onClick="closeKeyboard();"/>
+  
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">登陆密码</span>
+        <a href="javascript:void(0)" onClick="showKeyboard('password1')">
+        <input id="password1" type="password" placeholder="请输入6-8位数字" style="ime-mode:disabled;font-size:15px;"  readonly="readonly"/>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">确认密码 </span> 
+        <a href="javascript:void(0)" onClick="showKeyboard('password2')">
+       	<input id="password2" type="password"  style="ime-mode:disabled;font-size:15px;"placeholder="请再输入一次" readonly/></a>
+    </div>
+    
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">验证码</span> 
+       	<input type="text" placeholder="请输入验证码" style="font-size:15px;" />
+        
+        <input  class="huoqu " id="btn" type= "button" value="免费获取 "  onclick="time(this);" onClick="closeKeyboard();"/>
+    </div>
+    
+ <!--对勾选项-->
+    <div class="service-agreement">
+        <label>
+            
+            <span><input type="checkbox" checked/>我已同意<a class="btn" href="javascript:void(0);">《财富账户协议》</a></span>
+        </label>
+    </div>
+    
+   <a href="#" class="btn-submit"  id="next_kaihu">下一步</a>   
+</div>
+
+
+
+</body>
+</html>
+
+<!--页面4-->
+
+
+<div id="kaihu" name="kaihu" style="display:none;">
+
+<!--页眉-->
+<div class="hearder-content">
+ <a class="icon-return icon-return-4" onClick="closeKeyboard();">
+    <span>开户结果</span>
+</div>
+<!--内容-->
+    <div class="facebox redfont">恭喜您，您已成功升级！
+           <span class="face"><img src="img/okface.png" style="width:65px;height:65px;">
+</span>
+        <span class="yiwen">如有疑问，请咨询：95503</span>
+        
+    </div>
+    
+    <a href="#" class="btn-submit ">返回首页</a>
+</div>

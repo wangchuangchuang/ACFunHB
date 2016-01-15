@@ -1,0 +1,80 @@
+@charset "utf-8";
+/*
+@软键盘style
+*/
+
+.kbdiv {
+background:#e1e5eb;
+border:1px solid #FFF;
+font-size:15px;
+text-align:center;
+width:95%;
+padding:2px;
+font-family:"微软雅黑";
+border-radius:3px;
+box-shadow:2px 2px 3px #aaa;
+position:absolute;
+}
+.kbdiv em {
+font-style:normal;
+background:#ffffff;
+cursor:pointer;
+border-radius:3px;
+width:65px;
+height:35px;
+line-height:35px;
+color:#000000;
+-webkit-box-shadow: 1px 1px 3px #6e7e95;
+box-shadow: 1px 1px 3px #6e7e95;
+}
+.kbkey {
+width:20px;
+height:20px;
+line-height:20px;
+display:inline-block;
+text-align:center;
+font-size:14px;
+margin:2px;
+
+}
+.kbmouseover {
+color:#fff;
+}
+.kbdiv table {
+	width:100%;
+border-collapse:collapse;
+}
+#kbclose {
+width:140px;
+height:30px;
+line-height:30px;
+text-align:center;
+color:#424f58;
+background:#cfd2e3;
+display:block;
+font-size:12px;
+font-family:"微软雅黑";
+font-weight:bold;
+margin-left:10px;
+margin-top:3px;
+float:left;
+}
+#kbback {
+width:140px;
+height:30px;
+line-height:30px;
+background:#cfd2e3;
+color:#545454;
+display:block;
+font-size:12px;
+margin-left:10px;
+margin-top:3px;
+font-weight:bold;
+font-family:"微软雅黑";
+margin-right:10px;
+float:right;
+
+}
+
+
+

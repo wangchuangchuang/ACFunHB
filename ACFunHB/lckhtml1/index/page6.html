@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>银行卡信息验证
+</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalabel=no"/>
+<link href="css/page1and4.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/upgrade.css">
+<link rel="stylesheet" href="css/first.css">
+<script src="js/jquery.js"></script>
+<script src="js/regrist_flow.js"></script>
+</head>
+
+<body>
+
+<!--银行卡信息验证-->
+<div class="tianjiabank_page3">
+<div class="hearder-content">
+    <a class="icon-return" href="javascript:history.go(-1);"></a>
+    银行卡信息验证 
+</div>
+<div id="reg_msg_div_id" class="upgrade-prompt-content ma-top ma-top1">
+    <span id="reg_msg_id"  class="zijingzhanghao left-float left-float1">支付密码升级，请立即更新</span>
+</div>
+<!--内容-->
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">银行 </span>
+        <div id="register3_bankName" class="chose-bank-gra" onClick="show_choseBank_box_Div('choseBank_box')" style="color: rgb(0, 0, 0);font-size:15px;">请选择银行</div>
+                       <input type="hidden" name="bankName" data-role="none" placeholder="请选择开户银行" onClick="show('choseBank_box')" readonly>
+    </div>
+     <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">卡号</span>
+   <span class="smallfont shuru">60023000245568888</span>
+       </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">姓名 </span> 
+        <span class="smallfont shuru">**陈 </span>
+    </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">身份证号</span>
+        <span class="smallfont shuru"> 422****8888</span>
+    </div>
+    <div class="input-box oldyonghu bjnone">
+        <span class="bigfont">手机号</span>
+   <span class="smallfont shuru">13823456777</span>
+       </div>
+    <div class="input-box newyonghu bjnone">
+        <span class="bigfont">验证码 </span>
+        <input type="text" placeholder="请输入验证码" />
+               <input id="btn2"  class="huoqu" type="button" value="免费获取 "  onclick="get_identification_Time(this);"/>
+    </div>
+    <!--对勾选项-->
+    <div class="service-agreement m-bottom">
+        <label>
+            
+            <span><input type="checkbox" checked/>我已同意
+                <div class="f-left">
+                    <a href="#">《理财账户风险提示书》</a>
+                    <a href="#">《快捷支付协议》</a>
+                </div>
+    
+            </span>
+        </label>
+    </div>
+    <a id="tianjiabank_page3_btn" class="btn-submit" >下一步</a>
+  <!--浮层2-->
+  
+  
+<div id="choseBank_box" class="box_bg" style="display: none;">
+            <div class="box">
+                <section>
+                    <h3 style="display: inline-block; text-align:center;">请选择银行</h3><span><h3 style="display: inline-block;float: right;padding-right: 10px;color:#80807e" onClick="close_choseBank_box_Div('choseBank_box')">关闭  </h3></span>
+                    <hr/>
+                            </section>
+                <div style="overflow-y: scroll;height:220px;">
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding:12px;" onclick="register3_choseBank('0')">
+                    
+                    <input type="hidden" id="banks_bankNo_0" value="6021">
+                    <input type="hidden" id="banks_bankName_0" value="中国邮政储蓄银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a "> 
+                                     <img src="img/6021.png">
+                        </div>
+                        <div class="ui-block-b" style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国邮政储蓄银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('1')">
+                    
+                    <input type="hidden" id="banks_bankNo_1" value="6019">
+                    <input type="hidden" id="banks_bankName_1" value="中国工商银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a"> 
+                           
+                                 <img src="img/6019.png">
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国工商银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('2')">
+                    
+                    <input type="hidden" id="banks_bankNo_2" value="6000">
+                    <input type="hidden" id="banks_bankName_2" value="中国农业银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width: 20%"> 
+                           
+                                     <img src="img/6000.png">
+ 
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国农业银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('3')">
+                    
+                    <input type="hidden" id="banks_bankNo_3" value="6003">
+                    <input type="hidden" id="banks_bankName_3" value="中国银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width: 20%"> 
+                           
+                                     <img src="img/6003.png">
+ 
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('4')">
+                    
+                    <input type="hidden" id="banks_bankNo_4" value="6005">
+                    <input type="hidden" id="banks_bankName_4" value="中国建设银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width: 20%"> 
+                           
+                                 <img src="img/6005.png">
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国建设银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('5')">
+                    
+                    <input type="hidden" id="banks_bankNo_5" value="6006">
+                    <input type="hidden" id="banks_bankName_5" value="中国光大银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width: 20%"> 
+                           
+                                 <img src="img/6006.png">
+ 
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             中国光大银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                    <section style="border: rgb(221,221,221) 1px solid;padding: 12px;" onclick="register3_choseBank('6')">
+                    
+                    <input type="hidden" id="banks_bankNo_6" value="6018">
+                    <input type="hidden" id="banks_bankName_6" value="华夏银行">
+                    
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width: 20%"> 
+                           
+                                     <img src="img/6018.png">
+ 
+                        </div>
+                        <div class="ui-block-b"style="width: 60%; font-size:14px; font-family:'微软雅黑';">
+                             华夏银行
+                        </div>
+                        <div class="ui-block-c" style="width: 20%">
+    
+                        </div>
+                    </div>
+                </section>
+                
+                </div>
+            </div>
+      </div>
+</div>
+
+<div class="updatepwd_page4" style="display:none;">
+
+<div class="hearder-content">
+    <a class="icon-return" href="javascript:history.go(-1);"></a>
+    修改支付密码  
+</div>
+
+<div class="input-box newyonghu bjnone font-14px">
+    <span class="bigfont">新支付密码</span>
+       <input type="text" id="" placeholder="请输入6位支付密码" style="font-size:15px;"/>
+</div>
+<div class="input-box oldyonghu bjnone font-14px">
+    <span class="bigfont">确认支付密码</span> 
+           <input type="text" id="" placeholder="请再输入一次" style="font-size:15px;"/>
+</div>
+<a href="#" class="btn-submit" >确认</a>
+
+</div>
+</body>
+</html>
+
+

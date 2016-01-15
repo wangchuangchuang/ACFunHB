@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0;
+	
+	font-family:"华文细黑","微软雅黑";
+	color:343434;
+	margin:auto;
+	
+	}
+img{
+	margin:0;}
+a{ text-decoration:none;}
+
+html, body {overflow-x:hidden; font-family: Helvetica, STHeiti, Droid Sans Fallback, monospace, sans-serif, serif,"华文细黑"; word-break: break-all; word-wrap: break-word;}
+dl,dt,dd,ul,li{ list-style: none; margin: 0; padding: 0;}
+
+body{
+font-size:12px;
+font-size:1.2rem ; /* 12÷10=1.2 */
+}
+
+
+/*所有弹窗样式*/
+.abox {
+    width: 90%;
+    height: 80%;
+    background: #f2f2f2;
+    border-radius: 10px;
+    position: fixed;
+    left: 5%;
+    top: 10%;
+    line-height: 20px;
+    bottom: 5%;
+}
+.abox_two {
+    width: 80%;
+    background: #f2f2f2;
+    position: fixed;
+    left: 10%;
+    top: 22%;
+    padding-top: 5%;
+    line-height: 20px;
+}
+.abox img{
+	    float: left;
+    max-width: 18%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.abox ul{
+	float:left;
+	width:70%;
+	color: #e12135;
+    font-size: 0.8em;
+    padding-top: 4%;}
+
+.center{
+	text-align:center;
+	font-weight:bold;
+	width:80%;
+	padding-left:10%;
+	padding-bottom: 1%;
+	}
+.abox dl{
+	clear:both;}
+	
+.abox dl{
+	overflow: hidden;
+    color: #969696;
+	font-weight:bold;}
+.abox a{
+	color: white;
+	font-size:16px;
+}
+.abox span{
+	display:block;
+	height:1px;
+	width:100%;
+	background-color:#d5d7dc;}
+.abox red{
+	color:#e12135;}
+
+.abox .smallbox{
+	text-align: center;
+    line-height: 2em;
+    width: 100%;
+    padding-bottom: 4%;
+	font-size: 16px;
+    font-family: "华文细黑";
+    color: #343434;
+	}
+.abox,.bigbox{
+	display:none;
+}
+
+.abox .smallfont{
+	font-size: 0.8em;
+    width: 100%;
+    color: #414141;
+}
+
+.abox .textalingleft{
+	text-align: left;
+    padding-left: 8%;
+    width: 92%;
+	}
+	
+.qx{
+	float: left;
+    border-right: 1px solid;
+    border-color: #d5d7dc;
+    padding: 4% 0;
+    width: 50%;
+    text-align: center;}
+.fs{
+	float: right;
+    padding: 4% 0;
+    width: 49%;
+    text-align: center;}
+	
+.smallbox{
+	overflow:hidden;
+}

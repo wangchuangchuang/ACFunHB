@@ -1,0 +1,41 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, summary, time, mark, audio, video, input { margin: 0; padding: 0; border: none; outline: 0; vertical-align: baseline;}
+html, body {overflow-x:hidden; font-family: Helvetica, STHeiti, Droid Sans Fallback, monospace, sans-serif, serif,"华文细黑"; word-break: break-all; word-wrap: break-word;}
+dl,dt,dd,ul,li{ list-style: none; margin: 0; padding: 0;}
+header,footer,section,article,aside,nav,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+h1,h2,h3,h4,h5,h6,small{font-size:62.5%; font-weight: normal;}
+pre,code,kbd,samp{font-family:inherit;}
+a{cursor:pointer; text-decoration:none; outline:none;}
+*{outline:none;}
+button{ cursor:pointer; border:0 none;}
+input[type="submit"], input[type="reset"], input[type="button"], button{-webkit-appearance: none;}
+body,textarea,input,button,select,keygen,legend{outline:0;}
+body{background-color: #f5f5f9;}
+
+/*header*/
+.hearder-content {
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1d9eea;
+}
+
+.hearder-content a.icon-return {
+    position: absolute;
+    left: 12px;
+    top: 25px;
+    background: url("../img/jiantao.png") no-repeat;
+    background-size: 22px auto;
+    width: 22px;
+    height: 22px;
+}
+
